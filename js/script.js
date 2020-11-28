@@ -29,6 +29,7 @@ const promoTitle = promo.querySelector('.promo__adv-title');
 const promoImg = promo.querySelectorAll('img');
 const ganre = document.querySelector('.promo__genre');
 const body = document.querySelector('body');
+const promoContentBg = document.querySelector('.promo__bg');
 
 //1 quest
 promo.remove();
@@ -43,3 +44,5 @@ ganre.textContent = 'Драма';
 //3 quest
 body.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
 
+//Доп изменение от меня
+promoContentBg.style.background = 'none';
