@@ -28,12 +28,18 @@ const promo = document.querySelector('.promo__adv');
 const promoTitle = promo.querySelector('.promo__adv-title');
 const promoImg = promo.querySelectorAll('img');
 const ganre = document.querySelector('.promo__genre');
+const body = document.querySelector('body');
 
+//1 quest
+promo.remove();
 promoTitle.remove();
 promoImg.forEach((item) => {
     item.remove();
 });
 
+//2 quest
 ganre.textContent = 'Драма';
 
+//3 quest
+body.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
 
