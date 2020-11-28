@@ -30,6 +30,9 @@ const promoImg = promo.querySelectorAll('img');
 const ganre = document.querySelector('.promo__genre');
 const body = document.querySelector('body');
 const promoContentBg = document.querySelector('.promo__bg');
+const promoList = document.querySelector('.promo__interactive-list');
+const promoListLi = promoList.querySelectorAll('li');
+//const li = document.createElement('li');
 
 //1 quest
 promo.remove();
@@ -46,3 +49,16 @@ body.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
 
 //Доп изменение от меня
 promoContentBg.style.background = 'none';
+
+//4 quest
+promoListLi.forEach((item) => {
+    item.remove();
+});
+
+movieDB.movies.sort().forEach((item, index) => {
+    let li = document.createElement('li');
+    li.innerHTML = `<li>${item}</li>`;
+    promoList.append(li);
+    li.classList.add('promo__interactive-item');
+});
+
