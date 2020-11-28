@@ -32,7 +32,10 @@ const body = document.querySelector('body');
 const promoContentBg = document.querySelector('.promo__bg');
 const promoList = document.querySelector('.promo__interactive-list');
 const promoListLi = promoList.querySelectorAll('li');
-//const li = document.createElement('li');
+const newList = document.createElement('ol');
+promoList.replaceWith(newList);
+
+
 
 //1 quest
 promo.remove();
@@ -55,10 +58,16 @@ promoListLi.forEach((item) => {
     item.remove();
 });
 
+newList.classList.add('promo__interactive-list');
+newList.style.paddingLeft = '18px';
+newList.style.listStyleType = 'decimal';
+
 movieDB.movies.sort().forEach((item, index) => {
     let li = document.createElement('li');
-    li.innerHTML = `<li>${item}</li>`;
-    promoList.append(li);
+    li.innerHTML = `${item}<div class="delete"></div>`;
+    newList.append(li);
     li.classList.add('promo__interactive-item');
+    li.style.display = 'list-item';
+
 });
 
