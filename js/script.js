@@ -14,6 +14,7 @@
 
 'use strict';
 
+//?База данных с названиями фильмов
 const movieDB = {
     movies: [
         "Логан",
@@ -23,7 +24,9 @@ const movieDB = {
         "Скотт Пилигрим против..."
     ]
 };
+//!================================
 
+//?Переменные
 const promo = document.querySelector('.promo__adv');
 const promoTitle = promo.querySelector('.promo__adv-title');
 const promoImg = promo.querySelectorAll('img');
@@ -33,41 +36,61 @@ const promoContentBg = document.querySelector('.promo__bg');
 const promoList = document.querySelector('.promo__interactive-list');
 const promoListLi = promoList.querySelectorAll('li');
 const newList = document.createElement('ol');
-promoList.replaceWith(newList);
+//!================================
+
+
 
 
 
 //1 quest
+//?---Удаление элементов страницы 
 promo.remove();
 promoTitle.remove();
 promoImg.forEach((item) => {
     item.remove();
 });
+//!================================
+
 
 //2 quest
+//?---Установка текста в элементе страницы
 ganre.textContent = 'Драма';
+//!================================
 
 //3 quest
+//?---Установка фона на странце с помощю JS
 body.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
+//!================================
 
 //Доп изменение от меня
+//?---Убираю фон у элемента страницы
 promoContentBg.style.background = 'none';
+//!================================
 
 //4 quest
+//?---Убираем старые элементы списка, что бы установить новые
 promoListLi.forEach((item) => {
     item.remove();
 });
+//!================================
 
+//?---Заменяем маркированный список на нумированный
+promoList.replaceWith(newList);
+//!================================
+
+//?---Устанавливаем новому списку класс и стили
 newList.classList.add('promo__interactive-list');
 newList.style.paddingLeft = '18px';
 newList.style.listStyleType = 'decimal';
+//!================================
 
+//?---Здесь применяется несколько методов для БД с названиями фильмов - сортировки и перебора
 movieDB.movies.sort().forEach((item, index) => {
-    let li = document.createElement('li');
-    li.innerHTML = `${item}<div class="delete"></div>`;
-    newList.append(li);
-    li.classList.add('promo__interactive-item');
-    li.style.display = 'list-item';
-
+    let li = document.createElement('li');//Сощдаем новый элемент списка
+    li.innerHTML = `${item}<div class="delete"></div>`;//Вкладываем в него значения из БД
+    newList.append(li);//Ложим в начало списка
+    li.classList.add('promo__interactive-item');//Добавляем класс
+    li.style.display = 'list-item';//Устанавливаем отобрадение как списка
 });
+//!================================
 
