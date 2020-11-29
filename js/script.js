@@ -31,7 +31,6 @@ const promo = document.querySelector('.promo__adv'),
     promoTitle = promo.querySelector('.promo__adv-title'),
     promoImg = promo.querySelectorAll('img'),
     ganre = document.querySelector('.promo__genre'),
-    body = document.querySelector('body'),
     promoContentBg = document.querySelector('.promo__bg'),
     promoList = document.querySelector('.promo__interactive-list'),
     promoListLi = promoList.querySelectorAll('li'),
@@ -44,8 +43,8 @@ const promo = document.querySelector('.promo__adv'),
 
 //1 quest
 //?---Удаление элементов страницы 
-promo.remove();
-promoTitle.remove();
+//promo.remove();
+//promoTitle.remove();
 promoImg.forEach((item) => {
     item.remove();
 });
@@ -59,12 +58,7 @@ ganre.textContent = 'Драма';
 
 //3 quest
 //?---Установка фона на странце с помощю JS
-body.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
-//!================================
-
-//Доп изменение от меня
-//?---Убираю фон у элемента страницы
-promoContentBg.style.background = 'none';
+promoContentBg.style.cssText = 'background: url("img/bg.jpg") 0 0/ cover no-repeat;"';
 //!================================
 
 //4 quest
