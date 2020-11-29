@@ -34,9 +34,30 @@ const promo = document.querySelector('.promo__adv'),
     promoContentBg = document.querySelector('.promo__bg'),
     promoList = document.querySelector('.promo__interactive-list'),
     promoListLi = promoList.querySelectorAll('li'),
-    newList = document.createElement('ol');
+    newList = document.createElement('ol'),
+    form = document.querySelector('.add'),
+    btn = form.querySelector('button'),
+    input = form.querySelector('.adding__input');
 //!================================
 
+
+//?---Функции
+
+function addList() {
+    newList.innerHTML = ' ';
+    movieDB.movies.sort().forEach(film => {
+        newList.innerHTML += `
+    <li class="promo__interactive-item">${film}
+        <div class="delete"></div>
+    </li>
+    `;
+        newList.querySelectorAll('li').forEach(item => {
+            item.style.display = 'list-item';
+        });
+    });
+}
+
+//!=================================
 
 
 
@@ -87,15 +108,14 @@ newList.style.listStyleType = 'decimal';
     li.style.display = 'list-item';//Устанавливаем отобрадение как списка
 }); */
 
+addList();
 
-movieDB.movies.sort().forEach(film => {
-    newList.innerHTML += `
-    <li class="promo__interactive-item">${film}
-        <div class="delete"></div>
-    </li>
-    `;
-    newList.querySelectorAll('li').forEach(item => {
-        item.style.display = 'list-item';
-    });
-});
 //!================================
+
+
+btn.addEventListener('click', e => {
+    e.preventDefault();
+    movieDB.movies.push(input.value);
+    addList();
+    input.value = '';
+});
