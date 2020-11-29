@@ -79,12 +79,20 @@ newList.style.listStyleType = 'decimal';
 //!================================
 
 //?---Здесь применяется несколько методов для БД с названиями фильмов - сортировки и перебора
-movieDB.movies.sort().forEach((item, index) => {
+/* movieDB.movies.sort().forEach((item, index) => {
     let li = document.createElement('li');//Сощдаем новый элемент списка
     li.innerHTML = `${item}<div class="delete"></div>`;//Вкладываем в него значения из БД
     newList.append(li);//Ложим в начало списка
     li.classList.add('promo__interactive-item');//Добавляем класс
     li.style.display = 'list-item';//Устанавливаем отобрадение как списка
+}); */
+
+
+movieDB.movies.sort().forEach((film, i) => {
+    newList.innerHTML += `
+    <li class="promo__interactive-item">${film}
+        <div class="delete"></div>
+    </li>
+    `;
 });
 //!================================
-
