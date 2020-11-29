@@ -27,15 +27,15 @@ const movieDB = {
 //!================================
 
 //?Переменные
-const promo = document.querySelector('.promo__adv');
-const promoTitle = promo.querySelector('.promo__adv-title');
-const promoImg = promo.querySelectorAll('img');
-const ganre = document.querySelector('.promo__genre');
-const body = document.querySelector('body');
-const promoContentBg = document.querySelector('.promo__bg');
-const promoList = document.querySelector('.promo__interactive-list');
-const promoListLi = promoList.querySelectorAll('li');
-const newList = document.createElement('ol');
+const promo = document.querySelector('.promo__adv'),
+    promoTitle = promo.querySelector('.promo__adv-title'),
+    promoImg = promo.querySelectorAll('img'),
+    ganre = document.querySelector('.promo__genre'),
+    body = document.querySelector('body'),
+    promoContentBg = document.querySelector('.promo__bg'),
+    promoList = document.querySelector('.promo__interactive-list'),
+    promoListLi = promoList.querySelectorAll('li'),
+    newList = document.createElement('ol');
 //!================================
 
 
