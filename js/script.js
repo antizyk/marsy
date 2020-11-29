@@ -112,10 +112,16 @@ addList();
 
 //!================================
 
-
+//?---Работа с формой
 btn.addEventListener('click', e => {
     e.preventDefault();
-    movieDB.movies.push(input.value);
+    let nameFilm = input.value;
+    console.log(nameFilm.length);
+    if (nameFilm.length > 21) {
+        nameFilm = nameFilm.slice(0, 22) + '...';
+    }
+    movieDB.movies.push(nameFilm);
     addList();
     input.value = '';
 });
+//!================================
