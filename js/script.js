@@ -88,11 +88,14 @@ newList.style.listStyleType = 'decimal';
 }); */
 
 
-movieDB.movies.sort().forEach((film, i) => {
+movieDB.movies.sort().forEach(film => {
     newList.innerHTML += `
     <li class="promo__interactive-item">${film}
         <div class="delete"></div>
     </li>
     `;
+    newList.querySelectorAll('li').forEach(item => {
+        item.style.display = 'list-item';
+    });
 });
 //!================================
