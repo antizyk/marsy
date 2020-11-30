@@ -35,10 +35,13 @@ const promo = document.querySelector('.promo__adv'),
     promoList = document.querySelector('.promo__interactive-list'),
     promoListLi = promoList.querySelectorAll('li'),
     newList = document.createElement('ol'),
+    newListLi = newList.querySelectorAll('li'),
     form = document.querySelector('.add'),
     btn = form.querySelector('button'),
-    input = form.querySelector('.adding__input');
+    input = form.querySelector('.adding__input'),
+    basket = document.querySelectorAll('.delete');
 //!================================
+
 
 
 //?---Функции
@@ -123,5 +126,17 @@ btn.addEventListener('click', e => {
     movieDB.movies.push(nameFilm);
     addList();
     input.value = '';
+});
+//!================================
+
+//?---Установка кнопки удалить
+
+newList.addEventListener('click', e => {
+    console.log(e.target);
+    if (e.target.classList.contains('delete')) {
+        const child = e.target;
+        console.log(child.parentElement);
+        child.parentElement.remove();
+    }
 });
 //!================================
