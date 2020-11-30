@@ -39,7 +39,7 @@ const promo = document.querySelector('.promo__adv'),
     form = document.querySelector('.add'),
     btn = form.querySelector('button'),
     input = form.querySelector('.adding__input'),
-    basket = document.querySelectorAll('.delete');
+    checkbox = form.querySelector('input[type="checkbox"]');
 //!================================
 
 
@@ -59,7 +59,6 @@ function addList() {
         });
     });
 }
-
 //!=================================
 
 
@@ -119,18 +118,24 @@ addList();
 btn.addEventListener('click', e => {
     e.preventDefault();
     let nameFilm = input.value;
-    console.log(nameFilm.length);
-    if (nameFilm.length > 21) {
-        nameFilm = nameFilm.slice(0, 22) + '...';
+    if (nameFilm.length > 0) {
+        if (nameFilm.length > 21) {
+            nameFilm = nameFilm.slice(0, 22) + '...';
+        }
+        movieDB.movies.push(nameFilm);
+        addList();
+        input.value = '';
+        if (checkbox.checked) {
+            console.log('Добавляем любимый фильм');
+        }
+    } else {
+        alert('Введите название фильма');
     }
-    movieDB.movies.push(nameFilm);
-    addList();
-    input.value = '';
+
 });
 //!================================
 
 //?---Установка кнопки удалить
-
 newList.addEventListener('click', e => {
     console.log(e.target);
     if (e.target.classList.contains('delete')) {
